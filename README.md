@@ -1,27 +1,31 @@
-UART-Based RFID Access Control System
+# UART RFID Access Control System
 
-Description
+## Description
+A compact embedded access-control system that reads RFID tags over a UART interface and grants or denies access by driving a DC servo motor. 
+Firmware parses UIDs from the RFID reader, checks them against an authorized list, and logs access attempts over serial.
 
-This project implements an RFID-based access control system using UART communication on an ARM7 microcontroller. The RFID reader transmits a unique tag ID serially to the microcontroller. The received ID is validated against stored authorized IDs, and access is granted or denied accordingly.
-The project demonstrates reliable serial communication, data parsing, and access control logic at the embedded firmware level.
+## Software
+- Keil uVision (C firmware)  
+- Serial terminal for UART debugging (via RS-232)
 
-Hardware Used
-	•	LPC2129 (ARM7TDMI)
-	•	RFID Reader (EM-18 Uart based)
-	•	Keil µVision
-	•	Embedded C
+## Hardware Components
+- LPC2129 development board  
+- EM-18 UART RFID reader (reads tag UIDs)  
+- 16x2 alphanumeric LCD (displays "Access Granted"/"Access Denied")  
+- DC servo motor (rotates when access granted)  
+- RS-232 cable (used to verify UART via a serial terminal)  
+- Power supply, connectors, and passive components
 
-Key Features
-	•	UART serial communication
-	•	RFID tag ID reception and validation
-	•	Access control logic (grant/deny)
-	•	Bare-metal implementation (no OS)
-	•	Register-level programming
+## Working Principle
+On power-up, the LPC2129 microcontroller initializes the UART interface, LCD display, and servo motor control, while loading the list of authorized UIDs into memory.
+When an RFID tag is presented, the EM-18 reader transmits its UID over UART. The firmware parses the incoming UID, filters out duplicate reads, and compares it against the stored authorization list. 
 
-Working
+If the UID is valid, the servo motor rotates to unlock and the LCD displays **"Access Granted"**. If the UID is not recognized, the LCD shows **"Access Denied"**. Each access attempt is logged through the serial interface or persistent storage for monitoring. After a short timeout, the servo automatically returns to the locked position, and the system resumes listening for new tags, ensuring continuous and reliable operation.
 
-The RFID reader transmits the tag ID through the UART RX line. The microcontroller receives the data using UART registers and compares it with a predefined valid ID. If the ID matches, access is granted; otherwise, access is denied.
+## Skills Demonstrated
 
-Skills Demonstrated
-
-Embedded C, ARM7TDMI, UART, Bare-Metal Programming, Register-Level Programming, Debugging
+- Embedded C programming (bare-metal firmware)
+- UART protocol implementation
+- LCD and servo motor interfacing
+- UID parsing and authorization logic
+- Debugging and validation using Keil µVision
