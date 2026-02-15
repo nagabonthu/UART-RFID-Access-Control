@@ -1,10 +1,7 @@
 #ifndef UART_DRIVER_H
 #define UART_DRIVER_H
 
-#include <lpc21xx.h>
-
 /* UART function declarations */
-
 /* Initialize UART0 */
 void uart_init(void);
 
