@@ -1,14 +1,6 @@
-
 /* 
  * Project: UART Based Access Control System
- * Target : ARM7 LPC2129
- * Author : Naga Viswanth Bonthu
- * 
- * Description:
- * This project receives an ID through UART and compares it with
- * a predefined ID. Based on the comparison, access is granted
- * or denied and the result is displayed on a 16x2 LCD.
- */
+ * Target : ARM7 LPC212 */
 #include <lpc21xx.h>
 #include <string.h>
 #include "lcd.h"
