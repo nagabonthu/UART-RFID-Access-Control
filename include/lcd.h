@@ -4,8 +4,8 @@
 
 /* LCD pin configuration */
 #define LCD  0x0000FF00   // LCD data pins (P0.8 – P0.15)
-#define RS   (1 << 6)     // Register Select pin (P0.6)
-#define E    (1 << 7)     // Enable pin (P0.7)
+#define RS   (1 << 16)     // Register Select pin (P0.6)
+#define E    (1 << 17)     // Enable pin (P0.7)
 
 /* LCD function declarations */
 void lcd_init(void);
