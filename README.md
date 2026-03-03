@@ -1,5 +1,5 @@
 # UART RFID Access Control System
-## Overview
+## Project Overview
 A compact embedded access-control system that reads RFID tags over a UART interface and grants or denies access by driving a DC servo motor. 
 Firmware parses UIDs from the RFID reader, checks them against an authorized list, and logs access attempts over serial.
 ## Software
